@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Weather Info</title>
+
+    <script type="text/javascript">
+        var baseAddress = 'http://localhost:8089';
+
+        function redirectToHomePage() {
+            window.location.href = baseAddress + "/home";
+        }
+    </script>
+</head>
+
+<body onload="disconnect()">
+<div>
+    <table>
+        <legend>
+            <strong>Weather Info</strong>
+        </legend>
+        <thead>
+        <tr>
+            <th>City Name</th>
+            <th>Longitude</th>
+            <th>Latitude</th>
+            <th>Weather</th>
+            <th>Temperature/F</th>
+            <th>Wind Speed</th>
+            <th>Clouds</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:object="${weather}">
+            <td th:text="${weather.name}"></td>
+            <td th:text="${weather.coord.lon}"></td>
+            <td th:text="${weather.coord.lat}"></td>
+            <td th:text="${weather.weather[0].description}"></td>
+            <td th:text="${weather.main.temp}"></td>
+            <td th:text="${weather.wind.speed}"></td>
+            <td th:text="${weather.clouds.all}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <div id="goHomeDiv">
+        <button id="home" onclick="redirectToHomePage();">Home</button>
+        <p id="response"></p>
+    </div>
+</div>
+
+</body>
+
+</html>

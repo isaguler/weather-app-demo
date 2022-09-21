@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Weather App</title>
+
+    <script type="text/javascript">
+        var baseAddress = 'http://localhost:8089';
+
+        /*function getWeather() {
+            var cityName = document.getElementById('cityName').value;
+
+            const xmlHttpRequest = new XMLHttpRequest;
+            xmlHttpRequest.open("GET", baseAddress + "/get/weather/" + cityName)
+            xmlHttpRequest.send();
+        }*/
+
+        function redirectToWeather() {
+            var cityName = document.getElementById('cityName').value;
+
+            window.location.href = baseAddress + "/get/weather/" + cityName;
+        }
+    </script>
+</head>
+
+<body onload="disconnect()">
+
+<div>
+    <div id="requestDiv">
+        <input type="text" id="cityName" placeholder="City Name..."/>
+        <button id="getWeather" onclick="redirectToWeather();">Get Weather</button>
+        <p id="responseWeather"></p>
+    </div>
+</div>
+
+</body>
+
+</html>
