@@ -1,11 +1,9 @@
 package com.egitim.weatherappdemo.service;
 
 import com.egitim.weatherappdemo.model.GetWeatherResponse;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
-import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -17,13 +15,12 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class WeatherService {
 
-    String apiKey = "51fdbe96964e1511c09360b3870b9ab2";
-
-    ObjectMapper objectMapper = new ObjectMapper();
+    @Value("${openweathermap.apikey}")
+    String apiKey;
 
     Gson gson = new Gson();
 
-    public GetWeatherResponse getWeather(String cityName) throws JsonProcessingException {
+    public GetWeatherResponse getWeather(String cityName) {
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
@@ -34,16 +31,6 @@ public class WeatherService {
         log.info("response: " + response);
 
         GetWeatherResponse getWeatherResponse = gson.fromJson(response.getBody(), GetWeatherResponse.class);
-
-        log.info("visibility: " + getWeatherResponse.getVisibility());
-
-        /*JSONObject jsonObject = objectMapper.convertValue(response.getBody(), JSONObject.class);
-        log.info("json: " + jsonObject);
-
-        Integer visibility = jsonObject.getInt("visibility");
-        log.info("visibility: " + visibility);*/
-
-        //return response.getBody();
 
         return getWeatherResponse;
     }

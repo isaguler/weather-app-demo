@@ -1,6 +1,8 @@
 # weather-app-demo
 
 Current weather information of cities.
+<br/>
+Simple [Spring MVC](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html) project.
 
 #### Techs & Specs
 

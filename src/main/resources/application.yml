@@ -4,3 +4,6 @@ server:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+openweathermap:
+  apikey: 51fdbe96964e1511c09360b3870b9ab2
