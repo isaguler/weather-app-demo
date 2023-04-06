@@ -1,22 +1,25 @@
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8"/>
     <title>Weather App</title>
 
     <script type="text/javascript">
-        var baseAddress = 'http://localhost:8089';
+        const baseAddress = 'http://localhost:8089';
 
         /*function getWeather() {
             var cityName = document.getElementById('cityName').value;
 
             const xmlHttpRequest = new XMLHttpRequest;
-            xmlHttpRequest.open("GET", baseAddress + "/get/weather/" + cityName)
+            xmlHttpRequest.open("GET", baseAddress + "/get/weather/" + cityName);
+            //xmlHttpRequest.setRequestHeader('Authorization', 'user auth token');
+            //xmlHttpRequest.send(cityName);
+
             xmlHttpRequest.send();
         }*/
 
         function redirectToWeather() {
-            var cityName = document.getElementById('cityName').value;
+            const cityName = document.getElementById('cityName').value;
 
             window.location.href = baseAddress + "/get/weather/" + cityName;
         }
@@ -27,7 +30,7 @@
 
 <div>
     <div id="requestDiv">
-        <input type="text" id="cityName" placeholder="City Name..."/>
+        <label for="cityName"></label><input type="text" id="cityName" placeholder="City Name..."/>
         <button id="getWeather" onclick="redirectToWeather();">Get Weather</button>
         <p id="responseWeather"></p>
     </div>

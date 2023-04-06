@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  app:
+    image: 'weather-app-demo:latest'
+    build:
+      context: .
+    ports:
+      - "8089:8080"
+    environment:
+      - "API_KEY=${API_KEY}"

@@ -14,3 +14,14 @@ Simple [Spring MVC](https://docs.spring.io/spring-framework/docs/3.2.x/spring-fr
 
 #### Weather API
 [![](https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png)](https://openweathermap.org/)
+
+### Includes
+    - java 17 & SpringBoot3
+    - REST Api
+    - Spring Cache
+    - Docker & Docker Compose
+    - Thymeleaf
+    - OpenApi
+
+### Note
+    - Add ".env" file in the same directory with docker-compose.yml file and write inside "API_KEY=<YOUR_API_KEY>"

@@ -1,9 +1,11 @@
-server:
-  port: 8089
+spring:
+  config:
+    import: optional:file:.env[.properties]
 
 springdoc:
   swagger-ui:
-    path: /swagger-ui.html
+    path: "/api-docs"
 
-openweathermap:
-  apikey: your-api-key
+open-weather-map:
+  api-key: ${API_KEY}
+  api-url: https://api.openweathermap.org/data/2.5/weather
